@@ -1,9 +1,12 @@
 # Change Log
 
-All notable changes to the "jumpselect" extension will be documented in this file.
+## v1.0.0: Initial Release
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
-
-## [Unreleased]
-
-- Initial release
+- New commands: `jumpselect.jumpLeft`, `jumpselect.jumpRight`
+    - Default key bindings: `cmd+,`, `cmd+.`
+    - Waits for key press and jumps to specified character
+- New commands: `jumpselect.jumpSelectLeft`, `jumpselect.jumpSelectRight`
+    - Default key bindings: `cmd+,`, `cmd+.`
+    - Waits for key press and jumps to specified character
+- New setting: `jumpselect.showInputBox`
+    - Changes behavior of jump commands to use an input box instead of waiting for key press
