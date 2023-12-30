@@ -11,6 +11,11 @@
   "categories": [
     "Other"
   ],
+  "keywords": [
+    "jump",
+    "select",
+    "character"
+  ],
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
