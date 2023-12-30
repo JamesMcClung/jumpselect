@@ -14,8 +14,60 @@
   "contributes": {
     "commands": [
       {
-        "command": "jumpselect.helloWorld",
-        "title": "Hello World"
+        "command": "jumpselect.jumpRight",
+        "title": "Jump Right",
+        "category": "JumpSelect"
+      },
+      {
+        "command": "jumpselect.jumpLeft",
+        "title": "Jump Left",
+        "category": "JumpSelect"
+      },
+      {
+        "command": "jumpselect.jumpSelectLeft",
+        "title": "Jump and Select Left",
+        "category": "JumpSelect"
+      },
+      {
+        "command": "jumpselect.jumpSelectRight",
+        "title": "Jump and Select Right",
+        "category": "JumpSelect"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "jumpselect.jumpRight",
+        "key": "cmd+.",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "jumpselect.jumpSelectRight",
+        "key": "shift+cmd+.",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "jumpselect.jumpLeft",
+        "key": "cmd+,",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "jumpselect.jumpSelectLeft",
+        "key": "shift+cmd+,",
+        "when": "editorTextFocus"
+      }
+    ],
+    "configuration": [
+      {
+        "title": "jumpselect",
+        "type": "string",
+        "properties": {
+          "jumpselect.showInputBox": {
+            "type": "boolean",
+            "scope": "resource",
+            "default": false,
+            "description": "Whether to take input from the input box. Requires an extra key press, but won't conflict with other extensions that use the 'type' command."
+          }
+        }
       }
     ]
   },
