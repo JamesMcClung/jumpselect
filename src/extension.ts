@@ -1,26 +1,15 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
+import * as jumpselect from './jumpselect';
 
-// This method is called when your extension is activated
-// Your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
-
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "jumpselect" is now active!');
-
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with registerCommand
-	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('jumpselect.helloWorld', () => {
-		// The code you place here will be executed every time your command is executed
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World from jumpselect!');
-	});
-
-	context.subscriptions.push(disposable);
+	context.subscriptions.push(vscode.commands.registerCommand('jumpselect.jumpLeft', () => jumpselect.jump(-1, false, showInputBox())));
+	context.subscriptions.push(vscode.commands.registerCommand('jumpselect.jumpRight', () => jumpselect.jump(1, false, showInputBox())));
+	context.subscriptions.push(vscode.commands.registerCommand('jumpselect.jumpSelectLeft', () => jumpselect.jump(-1, true, showInputBox())));
+	context.subscriptions.push(vscode.commands.registerCommand('jumpselect.jumpSelectRight', () => jumpselect.jump(1, true, showInputBox())));
 }
 
-// This method is called when your extension is deactivated
-export function deactivate() {}
+function showInputBox(): boolean | undefined {
+	return vscode.workspace.getConfiguration().get<boolean>("jumpselect.showInputBox");
+}
+
+export function deactivate() { }
