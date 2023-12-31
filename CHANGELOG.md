@@ -1,5 +1,11 @@
 # Change Log
 
+## v3.0.0: Word Mode
+
+- Support for jumping to strings of arbitrary length
+- New setting: `jumpselect.wordModeTrigger`
+    - Opens an input box to input an arbitrary string
+
 ## v2.1.0
 
 - Fix https://github.com/JamesMcClung/jumpselect/issues/1

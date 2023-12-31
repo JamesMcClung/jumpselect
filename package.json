@@ -3,7 +3,7 @@
   "displayName": "jumpselect",
   "publisher": "james-mcclung",
   "description": "",
-  "version": "2.1.0",
+  "version": "3.0.0",
   "license": "SEE LICENSE IN LICENSE.txt",
   "engines": {
     "vscode": "^1.85.0"
