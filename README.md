@@ -5,19 +5,19 @@ A VS Code extension for jumping to specified characters.
 ## Added Commands
 
 ### `jumpselect.jumpLeft` and `jumpselect.jumpRight`
-_default keybindings: `cmd-,`, `cmd-.`_
+_default keybindings: `cmd+,`, `cmd+.`_
 
 These commands wait for a key press and jump to the specified character or word.
 
 Associated settings: `jumpselect.wordModeTrigger` and  `jumpselect.showInputBox`.
 
 ### `jumpselect.jumpSelectLeft` and `jumpselect.jumpSelectRight`
-_default keybindings: `shift-cmd-,`, `shift-cmd-.`_
+_default keybindings: `shift+cmd+,`, `shift+cmd+.`_
 
 These commands function as their non-select variants, except they also select text along the way.
 
 ### `jumpselect.copyJumpLeft`, `jumpselect.copyJumpRight`, `jumpselect.copyJumpSelectLeft`, and `jumpselect.copyJumpSelectRight`
-_default keybindings: `alt-,`, `alt-.`, `shift-alt-,`, `shift-alt-.`_
+_default keybindings: `alt+,`, `alt+.`, `shift+alt+,`, `shift+alt+.`_
 
 These commands function as their non-copy variants, except they jump to the most recently specified string instead of querying a new one.
 
