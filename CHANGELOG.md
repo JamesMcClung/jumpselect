@@ -1,5 +1,9 @@
 # Change Log
 
+## v3.0.1
+
+- Changed "-" to "+" in keybinding descriptions in readme
+
 ## v3.0.0: Word Mode
 
 - Support for jumping to strings of arbitrary length
