@@ -39,7 +39,7 @@ export async function jump(dir: -1 | 1, select: boolean, showInputBox: boolean =
         // VSCode's problematic hack: https://github.com/Microsoft/vscode/issues/13441
         const readKey = vscode.commands.registerCommand('type', async (arg: { text: string }) => {
             let target: string | undefined = arg.text;
-            if (target === "\n") {
+            if (matchesWordModeTrigger(target)) {
                 target = await vscode.window.showInputBox();
             }
 
@@ -57,6 +57,13 @@ function doJumps(editor: vscode.TextEditor, dir: -1 | 1, select: boolean, target
         lastTarget = target;
         editor.selections = editor.selections.map(sel => jumpToTarget(editor.document, sel, dir, select, target));
     }
+}
+
+function matchesWordModeTrigger(target: string): boolean {
+    const wordModeTrigger = vscode.workspace.getConfiguration().get<string>("jumpselect.wordModeTrigger");
+    return wordModeTrigger === target ||
+        wordModeTrigger === "\\n" && target === "\n" ||
+        wordModeTrigger === "\\t" && target === "\t";
 }
 
 export async function copyJump(dir: -1 | 1, select: boolean) {
