@@ -1,5 +1,9 @@
 # Change Log
 
+## v2.1.0
+
+- Fix https://github.com/JamesMcClung/jumpselect/issues/1
+
 ## v2.0.0: Copy Commands
 
 - New commands: `jumpselect.copyJumpLeft`, `jumpselect.copyJumpRight`, `jumpselect.copyJumpSelectLeft`, `jumpselect.copyJumpSelectRight`
