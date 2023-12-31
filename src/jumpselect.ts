@@ -1,6 +1,8 @@
 import * as vscode from 'vscode';
 import * as util from './util';
 
+let lastTarget: string | undefined = undefined;
+
 function jumpToTarget(doc: vscode.TextDocument, sel: vscode.Selection, dir: -1 | 1, select: boolean, target: string): vscode.Selection {
     const startOffset = doc.offsetAt(sel.active);
     const text = doc.getText();
@@ -41,4 +43,14 @@ export async function jump(dir: -1 | 1, select: boolean, showInputBox: boolean =
             readKey.dispose();
         });
     }
+}
+
+export async function copyJump(dir: -1 | 1, select: boolean) {
+    const editor = vscode.window.activeTextEditor;
+
+    if (!editor || lastTarget === undefined) {
+        return;
+    }
+
+    editor.selections = editor.selections.map(sel => jumpToTarget(editor.document, sel, dir, select, lastTarget!));
 }
