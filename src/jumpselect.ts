@@ -2,6 +2,7 @@ import * as vscode from 'vscode';
 import * as util from './util';
 
 let lastTarget: string | undefined = undefined;
+let lastReadKey: vscode.Disposable | undefined = undefined;
 
 function jumpToTarget(doc: vscode.TextDocument, sel: vscode.Selection, dir: -1 | 1, select: boolean, target: string): vscode.Selection {
     const startOffset = doc.offsetAt(sel.active);
@@ -37,13 +38,18 @@ export async function jump(dir: -1 | 1, select: boolean, showInputBox: boolean =
             editor.selections = editor.selections.map(sel => jumpToTarget(doc, sel, dir, select, target));
         }
     } else {
+        if (lastReadKey !== undefined) {
+            lastReadKey.dispose();
+        }
         // VSCode's problematic hack: https://github.com/Microsoft/vscode/issues/13441
-        let readKey = vscode.commands.registerCommand('type', (arg: { text: string }) => {
+        const readKey = vscode.commands.registerCommand('type', (arg: { text: string }) => {
             const target = arg.text;
             lastTarget = target;
             editor.selections = editor.selections.map(sel => jumpToTarget(doc, sel, dir, select, target));
+            lastReadKey = undefined;
             readKey.dispose();
         });
+        lastReadKey = readKey;
     }
 }
 
