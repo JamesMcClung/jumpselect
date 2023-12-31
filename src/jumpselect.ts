@@ -33,12 +33,14 @@ export async function jump(dir: -1 | 1, select: boolean, showInputBox: boolean =
     if (showInputBox) {
         const target = await vscode.window.showInputBox();
         if (target !== undefined) {
+            lastTarget = target;
             editor.selections = editor.selections.map(sel => jumpToTarget(doc, sel, dir, select, target));
         }
     } else {
         // VSCode's problematic hack: https://github.com/Microsoft/vscode/issues/13441
         let readKey = vscode.commands.registerCommand('type', (arg: { text: string }) => {
             const target = arg.text;
+            lastTarget = target;
             editor.selections = editor.selections.map(sel => jumpToTarget(doc, sel, dir, select, target));
             readKey.dispose();
         });
