@@ -14,6 +14,11 @@ _default keybindings: `shift-cmd-,`, `shift-cmd-.`_
 
 These commands wait for a key press and select text up to the specified character. 
 
+### `jumpselect.copyJumpLeft`, `jumpselect.copyJumpRight`, `jumpselect.copyJumpSelectLeft`, and `jumpselect.copyJumpSelectRight`
+_default keybindings: `alt-,`, `alt-.`, `shift-alt-,`, `shift-alt-.`_
+
+These commands function as their non-copy variants, except they jump to the most recently specified character instead of querying a new one.
+
 ## Added Settings
 
 ### `jumpselect.showInputBox`
@@ -29,6 +34,10 @@ This extension has no requirements.
 See https://github.com/JamesMcClung/jumpselect/issues
 
 ## Release Notes
+
+### 2.0.0
+
+Added "copy" versions of existing jump commands: `jumpselect.copyJumpLeft`, `jumpselect.copyJumpRight`, `jumpselect.copyJumpSelectLeft`, and `jumpselect.copyJumpSelectRight`
 
 ### 1.0.0
 
