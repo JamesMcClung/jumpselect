@@ -29,14 +29,9 @@ export async function jump(dir: -1 | 1, select: boolean, showInputBox: boolean =
         return;
     }
 
-    const doc = editor.document;
-
     if (showInputBox) {
         const target = await vscode.window.showInputBox();
-        if (target !== undefined && target.length > 0) {
-            lastTarget = target;
-            editor.selections = editor.selections.map(sel => jumpToTarget(doc, sel, dir, select, target));
-        }
+        doJumps(editor, dir, select, target);
     } else {
         if (lastReadKey !== undefined) {
             lastReadKey.dispose();
@@ -48,15 +43,19 @@ export async function jump(dir: -1 | 1, select: boolean, showInputBox: boolean =
                 target = await vscode.window.showInputBox();
             }
 
-            if (target !== undefined && target.length > 0) {
-                lastTarget = target;
-                editor.selections = editor.selections.map(sel => jumpToTarget(doc, sel, dir, select, target!));
-            }
+            doJumps(editor, dir, select, target);
 
             lastReadKey = undefined;
             readKey.dispose();
         });
         lastReadKey = readKey;
+    }
+}
+
+function doJumps(editor: vscode.TextEditor, dir: -1 | 1, select: boolean, target: string | undefined) {
+    if (target !== undefined && target.length > 0) {
+        lastTarget = target;
+        editor.selections = editor.selections.map(sel => jumpToTarget(editor.document, sel, dir, select, target));
     }
 }
 
