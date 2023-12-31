@@ -3,7 +3,7 @@
   "displayName": "jumpselect",
   "publisher": "james-mcclung",
   "description": "",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "license": "SEE LICENSE IN LICENSE.txt",
   "engines": {
     "vscode": "^1.85.0"
@@ -39,6 +39,26 @@
         "command": "jumpselect.jumpSelectRight",
         "title": "Jump and Select Right",
         "category": "JumpSelect"
+      },
+      {
+        "command": "jumpselect.copyJumpLeft",
+        "title": "Copy Jump Left",
+        "category": "JumpSelect"
+      },
+      {
+        "command": "jumpselect.copyJumpRight",
+        "title": "Copy Jump Right",
+        "category": "JumpSelect"
+      },
+      {
+        "command": "jumpselect.copyJumpSelectLeft",
+        "title": "Copy Jump and Select Left",
+        "category": "JumpSelect"
+      },
+      {
+        "command": "jumpselect.copyJumpRSelectight",
+        "title": "Copy Jump and Select Right",
+        "category": "JumpSelect"
       }
     ],
     "keybindings": [
@@ -60,6 +80,26 @@
       {
         "command": "jumpselect.jumpSelectLeft",
         "key": "shift+cmd+,",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "jumpselect.copyJumpLeft",
+        "key": "alt+,",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "jumpselect.copyJumpRight",
+        "key": "alt+.",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "jumpselect.copyJumpSelectLeft",
+        "key": "shift+alt+,",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "jumpselect.copyJumpSelectRight",
+        "key": "shift+alt+.",
         "when": "editorTextFocus"
       }
     ],
