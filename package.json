@@ -3,7 +3,7 @@
   "displayName": "jumpselect",
   "publisher": "james-mcclung",
   "description": "",
-  "version": "2.1.0",
+  "version": "3.0.0",
   "license": "SEE LICENSE IN LICENSE.txt",
   "engines": {
     "vscode": "^1.85.0"
@@ -113,6 +113,12 @@
             "scope": "resource",
             "default": false,
             "description": "Whether to take input from the input box. Requires an extra key press, but won't conflict with other extensions that use the 'type' command."
+          },
+          "jumpselect.wordModeTrigger": {
+            "type": "string",
+            "scope": "resource",
+            "default": "\\n",
+            "description": "Key used to switch to an input box, allowing more than one character to be typed. Moot if showInputBox is true. Must be a single character or '\\n', or else it is effectively disabled."
           }
         }
       }

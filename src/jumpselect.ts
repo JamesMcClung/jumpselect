@@ -29,28 +29,40 @@ export async function jump(dir: -1 | 1, select: boolean, showInputBox: boolean =
         return;
     }
 
-    const doc = editor.document;
-
     if (showInputBox) {
         const target = await vscode.window.showInputBox();
-        if (target !== undefined) {
-            lastTarget = target;
-            editor.selections = editor.selections.map(sel => jumpToTarget(doc, sel, dir, select, target));
-        }
+        doJumps(editor, dir, select, target);
     } else {
         if (lastReadKey !== undefined) {
             lastReadKey.dispose();
         }
         // VSCode's problematic hack: https://github.com/Microsoft/vscode/issues/13441
-        const readKey = vscode.commands.registerCommand('type', (arg: { text: string }) => {
-            const target = arg.text;
-            lastTarget = target;
-            editor.selections = editor.selections.map(sel => jumpToTarget(doc, sel, dir, select, target));
+        const readKey = vscode.commands.registerCommand('type', async (arg: { text: string }) => {
+            let target: string | undefined = arg.text;
+            if (matchesWordModeTrigger(target)) {
+                target = await vscode.window.showInputBox();
+            }
+
+            doJumps(editor, dir, select, target);
+
             lastReadKey = undefined;
             readKey.dispose();
         });
         lastReadKey = readKey;
     }
+}
+
+function doJumps(editor: vscode.TextEditor, dir: -1 | 1, select: boolean, target: string | undefined) {
+    if (target !== undefined && target.length > 0) {
+        lastTarget = target;
+        editor.selections = editor.selections.map(sel => jumpToTarget(editor.document, sel, dir, select, target));
+    }
+}
+
+function matchesWordModeTrigger(target: string): boolean {
+    const wordModeTrigger = vscode.workspace.getConfiguration().get<string>("jumpselect.wordModeTrigger");
+    return wordModeTrigger === target ||
+        wordModeTrigger === "\\n" && target === "\n";
 }
 
 export async function copyJump(dir: -1 | 1, select: boolean) {
