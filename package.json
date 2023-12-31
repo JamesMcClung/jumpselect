@@ -113,6 +113,12 @@
             "scope": "resource",
             "default": false,
             "description": "Whether to take input from the input box. Requires an extra key press, but won't conflict with other extensions that use the 'type' command."
+          },
+          "jumpselect.wordModeTrigger": {
+            "type": "string",
+            "scope": "resource",
+            "default": "\\n",
+            "description": "Key used to switch to an input box, allowing more than one character to be typed. Moot if showInputBox is true. Must be a single character, '\\n', or '\\t', or else it is effectively disabled."
           }
         }
       }
