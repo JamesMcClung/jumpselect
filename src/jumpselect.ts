@@ -62,8 +62,7 @@ function doJumps(editor: vscode.TextEditor, dir: -1 | 1, select: boolean, target
 function matchesWordModeTrigger(target: string): boolean {
     const wordModeTrigger = vscode.workspace.getConfiguration().get<string>("jumpselect.wordModeTrigger");
     return wordModeTrigger === target ||
-        wordModeTrigger === "\\n" && target === "\n" ||
-        wordModeTrigger === "\\t" && target === "\t";
+        wordModeTrigger === "\\n" && target === "\n";
 }
 
 export async function copyJump(dir: -1 | 1, select: boolean) {
