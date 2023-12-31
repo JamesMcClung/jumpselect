@@ -1,5 +1,11 @@
 # Change Log
 
+## v2.0.0: Copy Commands
+
+- New commands: `jumpselect.copyJumpLeft`, `jumpselect.copyJumpRight`, `jumpselect.copyJumpSelectLeft`, `jumpselect.copyJumpSelectRight`
+    - Default key bindings: `alt+,`, `alt+.`, `shift+alt+,`, `shift+alt+.`
+    - Same behavior as non-copy variants but use the most recent jumped-to character instead of waiting for input
+
 ## v1.0.0: Initial Release
 
 - New commands: `jumpselect.jumpLeft`, `jumpselect.jumpRight`
