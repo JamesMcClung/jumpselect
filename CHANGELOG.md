@@ -1,5 +1,9 @@
 # Change Log
 
+## v3.1.1
+
+- Added minor version release notes to readme
+
 ## v3.1.0
 
 - Fix https://github.com/JamesMcClung/jumpselect/issues/3
