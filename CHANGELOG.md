@@ -1,5 +1,9 @@
 # Change Log
 
+## v3.1.0
+
+- Fix https://github.com/JamesMcClung/jumpselect/issues/3
+
 ## v3.0.1
 
 - Changed "-" to "+" in keybinding descriptions in readme
