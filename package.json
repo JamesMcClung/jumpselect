@@ -56,7 +56,7 @@
         "category": "JumpSelect"
       },
       {
-        "command": "jumpselect.copyJumpRSelectight",
+        "command": "jumpselect.copyJumpSelectight",
         "title": "Copy Jump and Select Right",
         "category": "JumpSelect"
       }
