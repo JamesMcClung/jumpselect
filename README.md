@@ -41,9 +41,17 @@ See https://github.com/JamesMcClung/jumpselect/issues
 
 ## Release Notes
 
+### 3.1.0
+
+Fixed a typo in a command name
+
 ### 3.0.0
 
 Added support for jumping to words and a new setting to make use of it: `jumpselect.wordModeTrigger`
+
+### 2.1.0
+
+Failed jumps no longer permanently block key listens
 
 ### 2.0.0
 
