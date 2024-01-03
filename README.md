@@ -41,6 +41,10 @@ See https://github.com/JamesMcClung/jumpselect/issues
 
 ## Release Notes
 
+### 3.2.0
+
+Jumping now updates window scrolling
+
 ### 3.1.0
 
 Fixed a typo in a command name

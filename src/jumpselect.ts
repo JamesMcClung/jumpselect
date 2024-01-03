@@ -56,6 +56,7 @@ function doJumps(editor: vscode.TextEditor, dir: -1 | 1, select: boolean, target
     if (target !== undefined && target.length > 0) {
         lastTarget = target;
         editor.selections = editor.selections.map(sel => jumpToTarget(editor.document, sel, dir, select, target));
+        editor.revealRange(editor.selection);
     }
 }
 
@@ -68,9 +69,9 @@ function matchesWordModeTrigger(target: string): boolean {
 export async function copyJump(dir: -1 | 1, select: boolean) {
     const editor = vscode.window.activeTextEditor;
 
-    if (!editor || lastTarget === undefined) {
+    if (!editor) {
         return;
     }
 
-    editor.selections = editor.selections.map(sel => jumpToTarget(editor.document, sel, dir, select, lastTarget!));
+    doJumps(editor, dir, select, lastTarget);
 }
