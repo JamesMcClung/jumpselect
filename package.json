@@ -2,8 +2,8 @@
   "name": "jumpselect",
   "displayName": "jumpselect",
   "publisher": "james-mcclung",
-  "description": "",
-  "version": "3.2.0",
+  "description": "Adds commands for quickly jumping to specific characters.",
+  "version": "3.2.1",
   "license": "SEE LICENSE IN LICENSE.txt",
   "engines": {
     "vscode": "^1.85.0"
