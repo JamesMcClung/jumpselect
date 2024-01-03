@@ -1,5 +1,9 @@
 # Change Log
 
+## v3.2.1
+
+- Added a description to the extension
+
 ## v3.2.0
 
 - Fix https://github.com/JamesMcClung/jumpselect/issues/5
