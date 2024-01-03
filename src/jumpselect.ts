@@ -56,6 +56,7 @@ function doJumps(editor: vscode.TextEditor, dir: -1 | 1, select: boolean, target
     if (target !== undefined && target.length > 0) {
         lastTarget = target;
         editor.selections = editor.selections.map(sel => jumpToTarget(editor.document, sel, dir, select, target));
+        editor.revealRange(editor.selection);
     }
 }
 
@@ -73,4 +74,5 @@ export async function copyJump(dir: -1 | 1, select: boolean) {
     }
 
     editor.selections = editor.selections.map(sel => jumpToTarget(editor.document, sel, dir, select, lastTarget!));
+    editor.revealRange(editor.selection);
 }
