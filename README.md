@@ -41,6 +41,10 @@ See https://github.com/JamesMcClung/jumpselect/issues
 
 ## Release Notes
 
+### 3.3.0
+
+Attempting to jump past the last match will jump to immediately after the match instead of doing nothing
+
 ### 3.2.0
 
 Jumping now updates window scrolling
