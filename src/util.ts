@@ -2,7 +2,7 @@ export function getOffsetOfTarget(text: string, startOffset: number, dir: -1 | 1
     if (target.length === 0) {
         throw Error(`internal jumpselect error: empty target`);
     }
-    startOffset += dir + Math.min(dir, 0); // skip adjacent characters in the search (which are at indices `offset` and `offset-1`)
+    startOffset += Math.min(dir, 0); // if going left, only search to left of cursor
     const matches = target.length === 1 ? matchesChar : (dir === 1 ? matchesAtStart : matchesAtEnd);
     for (let i = startOffset; i >= 0 && i < text.length; i += dir) {
         if (matches(text, target, i)) {
