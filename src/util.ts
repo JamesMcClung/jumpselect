@@ -1,12 +1,12 @@
-export function getOffsetOfTarget(text: string, startOffset: number, dir: -1 | 1, target: string): number | undefined {
+export function getCursorOffsetOfTarget(text: string, startCursorOffset: number, dir: -1 | 1, target: string): number | undefined {
     if (target.length === 0) {
         throw Error(`internal jumpselect error: empty target`);
     }
-    startOffset += Math.min(dir, 0); // if going left, only search to left of cursor
+    startCursorOffset += Math.min(dir, 0); // if going left, only search to left of cursor
     const matches = target.length === 1 ? matchesChar : (dir === 1 ? matchesAtStart : matchesAtEnd);
-    for (let i = startOffset; i >= 0 && i < text.length; i += dir) {
+    for (let i = startCursorOffset; i >= 0 && i < text.length; i += dir) {
         if (matches(text, target, i)) {
-            return i;
+            return i - Math.min(0, dir); // if going left, put cursor to the right of the target
         }
     }
     return undefined;
