@@ -7,10 +7,19 @@ let lastReadKey: vscode.Disposable | undefined = undefined;
 function jumpToTarget(doc: vscode.TextDocument, sel: vscode.Selection, dir: -1 | 1, select: boolean, target: string): vscode.Selection {
     const startCursorOffset = doc.offsetAt(sel.active);
     const text = doc.getText();
-    const endCursorOffset = util.getCursorOffsetOfTarget(text, startCursorOffset, dir, target);
+    let endCursorOffset = util.getCursorOffsetOfTarget(text, startCursorOffset, dir, target);
 
     if (endCursorOffset === undefined) {
         return sel;
+    }
+
+    if (endCursorOffset === startCursorOffset) {
+        const cursorOffsetAfterSkip = startCursorOffset + dir * target.length;
+        endCursorOffset = util.getCursorOffsetOfTarget(text, cursorOffsetAfterSkip, dir, target);
+
+        if (endCursorOffset === undefined) {
+            endCursorOffset = cursorOffsetAfterSkip;
+        }
     }
 
     const endPos = doc.positionAt(endCursorOffset);
