@@ -1,5 +1,9 @@
 # Change Log
 
+## v3.3.0
+
+- Attempting to jump past the last match will jump to immediately after the match
+
 ## v3.2.1
 
 - Added a description to the extension
