@@ -1,5 +1,9 @@
 # Change Log
 
+## v4.1.0
+
+- Fix https://github.com/JamesMcClung/jumpselect/issues/7
+
 ## v4.0.0: Target Selected
 
 - New command: `jumpselect.setTargetToSelection`
