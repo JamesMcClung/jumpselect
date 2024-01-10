@@ -1,5 +1,9 @@
 # Change Log
 
+## v4.0.0: Target Selected
+
+- New command: `jumpselect.setTargetToSelection`
+
 ## v3.3.0
 
 - Attempting to jump past the last match will jump to immediately after the match
