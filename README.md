@@ -21,6 +21,11 @@ _default keybindings: `alt+,`, `alt+.`, `shift+alt+,`, `shift+alt+.`_
 
 These commands function as their non-copy variants, except they jump to the most recently specified string instead of querying a new one.
 
+### `jumpselect.setTargetToSelection`
+_default keybinding: `shift+cmd+/`_
+
+This command sets the currently selected text to be the target of future copy-jumps.
+
 ## Added Settings
 
 ### `jumpselect.showInputBox`
@@ -40,6 +45,10 @@ This extension has no requirements.
 See https://github.com/JamesMcClung/jumpselect/issues
 
 ## Release Notes
+
+### 4.0.0
+
+Added `jumpselect.setTargetToSelection` command
 
 ### 3.3.0
 
