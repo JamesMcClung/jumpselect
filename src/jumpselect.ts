@@ -84,3 +84,16 @@ export async function copyJump(dir: -1 | 1, select: boolean) {
 
     doJumps(editor, dir, select, lastTarget);
 }
+
+export function setTargetToSelection() {
+    const editor = vscode.window.activeTextEditor;
+
+    if (!editor) {
+        return;
+    }
+
+    const maybeTarget = editor.document.getText(editor.selection);
+    if (maybeTarget.length > 0) {
+        lastTarget = maybeTarget;
+    }
+}

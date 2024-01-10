@@ -3,7 +3,7 @@
   "displayName": "jumpselect",
   "publisher": "james-mcclung",
   "description": "Adds commands for quickly jumping to specific characters.",
-  "version": "3.3.0",
+  "version": "4.0.0",
   "license": "SEE LICENSE IN LICENSE.txt",
   "engines": {
     "vscode": "^1.85.0"
@@ -59,6 +59,11 @@
         "command": "jumpselect.copyJumpSelectight",
         "title": "Copy Jump and Select Right",
         "category": "JumpSelect"
+      },
+      {
+        "command": "jumpselect.setTargetToSelection",
+        "title": "Set Jump Target to Selection",
+        "category": "JumpSelect"
       }
     ],
     "keybindings": [
@@ -100,6 +105,11 @@
       {
         "command": "jumpselect.copyJumpSelectRight",
         "key": "shift+alt+.",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "jumpselect.setTargetToSelection",
+        "key": "shift+cmd+/",
         "when": "editorTextFocus"
       }
     ],

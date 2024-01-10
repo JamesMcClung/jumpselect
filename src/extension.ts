@@ -10,6 +10,7 @@ export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(vscode.commands.registerCommand('jumpselect.copyJumpRight', () => jumpselect.copyJump(1, false)));
 	context.subscriptions.push(vscode.commands.registerCommand('jumpselect.copyJumpSelectLeft', () => jumpselect.copyJump(-1, true)));
 	context.subscriptions.push(vscode.commands.registerCommand('jumpselect.copyJumpSelectRight', () => jumpselect.copyJump(1, true)));
+	context.subscriptions.push(vscode.commands.registerCommand('jumpselect.setTargetToSelection', jumpselect.setTargetToSelection));
 }
 
 function showInputBox(): boolean | undefined {
