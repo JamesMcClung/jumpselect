@@ -46,6 +46,10 @@ See https://github.com/JamesMcClung/jumpselect/issues
 
 ## Release Notes
 
+### 4.1.0
+
+Fixed a typo in a command name (for real this time)
+
 ### 4.0.0
 
 Added `jumpselect.setTargetToSelection` command
